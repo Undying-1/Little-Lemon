@@ -12,7 +12,7 @@ class MenuItemsView(generics.ListCreateAPIView, generics.UpdateAPIView, generics
         if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
             permission_classes = [IsAuthenticated, IsManager]
         else:
-            permission_classes = [IsAuthenticated, IsDeliveryCrew | IsManager]
+            permission_classes = [IsAuthenticated, IsDeliveryCrew | IsManager | IsCustomer]
         return [permission() for permission in permission_classes]
     
 
@@ -24,6 +24,6 @@ class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView):
         if self.request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
             permission_classes = [IsAuthenticated, IsManager]
         else:
-            permission_classes = [IsAuthenticated, IsDeliveryCrew | IsManager]
+            permission_classes = [IsAuthenticated, IsDeliveryCrew | IsManager | IsCustomer]
         
         return [permission() for permission in permission_classes]

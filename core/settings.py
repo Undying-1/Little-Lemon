@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'apps.Groups',
     'apps.MenuItems',
+    'apps.Cart',
 ]
 
 MIDDLEWARE = [
